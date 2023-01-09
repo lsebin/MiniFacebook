@@ -1,0 +1,21 @@
+html {
+  background-color: #C7d9ab;
+}
+
+h1 {
+  color: #49592A;
+}
+
+.basicButton {
+  background-color: #49592A; /* Matcha Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  border-radius: 3px;
+  
+  font-size: 16px;
+  font-family: Helvetica, Sans-Serif;
+}

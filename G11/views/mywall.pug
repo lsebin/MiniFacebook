@@ -1,0 +1,26 @@
+extends layouts/standard.pug
+
+block head
+  title MyWall
+  script(src="../js/ajaxmywall.js")
+  link(rel='stylesheet', href='/css/mywall.css')
+
+block content
+    a(class='a', href='/wall') MatchA
+    div(class='mywall-content')
+        div(class='mywall-header')
+            h1(class='mywall-header-text')
+                span(id='mywall-userwall-target') #{userwall}
+                span 's wall
+                
+        if canPost
+            div(class='mywall-inputarea')
+                p(id='mywall-errortarget')
+                textarea(id='mywall-inputtarget')
+                button(id='mywall-inputbutton' onclick="sendPost()") Post to Wall
+            div(class='mywall-postarea')
+                h1 Your posts:
+                div(id='mywall-post-target')
+        else
+            span You must be friends with #{userwall} to view their posts.
+            

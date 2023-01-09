@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Jua);
+
+.a{
+    all: unset;
+    font-size: 40px;
+    color:#49592A;
+}
+
+.a:hover{
+    color: white;
+}
+
+.notif-invite{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+    border: 2px solid black;
+    margin: auto;
+    width: 75%;
+    padding: 3%;
+}
+
+.notif-info{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+}
+
+.notif-actions{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+}
+
+.notif-username{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+}
+
+.notif-typename{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+}
+
+.notif-accept{
+    background-color: #49592A;
+    font-family: 'Jua';
+    color: white;
+}
+
+.notif-reject{
+    background-color: #49592A;
+    font-family: 'Jua';
+    color: white;
+}
+
+.notif-head{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+    text-align: center;
+    position: fixed;
+    margin: auto;
+    width: 100%;
+}
+
+.notif-divider{
+    color: white;
+    background-color: white;
+    font-family: 'Jua';
+    height: 1px;
+    width: 100%;
+}
+
+.notif-body{
+    background-color: #C7D9AB;
+    font-family: 'Jua';
+    height: 100vh;
+    width: 100vw;
+    padding: 5px;
+}

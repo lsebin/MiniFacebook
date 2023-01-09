@@ -1,0 +1,58 @@
+extends layouts/standard.pug
+
+block head
+    title Account Settings
+    script(src='js/ajaxsettingspage.js')
+
+block content
+    h1 Account Settings
+    div(class="settings-content")
+        div(class="settings-currentinfo")
+            p Username: #{user.username}
+            p Display Name: #{user.displayname ? user.displayname : user.username}
+            p Email: #{user.email}
+            p First Name: #{user.firstname}
+            p Last Name: #{user.lastname}
+            p Affiliation: #{user.affiliation}
+            p Phone Number: #{user.phone ? user.phone : "No phone given."}
+            p Date of Birth: #{user.dob}
+            p Interests: #{user.interests}
+        div(class="settings-form")
+            h2 Edit your information
+            div(class="settings-error")
+                div(id="settings-clienterror")
+                div(id="settings-servererror")
+            div(class="form-group w-25")
+                label(for="settings-username") Username
+                input(type="text", class="form-control", id="settings-username" name="settings-username")
+            div(class="form-group w-25")
+                label(for="settings-username") Displayname
+                input(type="text", class="form-control", id="settings-displayname" name="settings-displayname")
+            div(class="form-group w-25")
+                label(for="settings-password") Password
+                input(type="text", class="form-control", id="settings-password" name="settings-password")
+            div(class="form-group w-25")
+                label(for="settings-firstname") First Name
+                input(type="text", class="form-control", id="settings-firstname" name="settings-firstname")
+            div(class="form-group w-25")
+                label(for="settings-lastname") Last Name
+                input(type="text", class="form-control", id="settings-lastname" name="settings-lastname")
+            div(class="form-group w-25")
+                label(for="settings-affiliation") Affiliation
+                input(type="text", class="form-control", id="settings-affiliation" name="settings-affiliation")
+            div(class="form-group w-25")
+                label(for="settings-email") Email
+                input(type="text", class="form-control", id="settings-email" name="settings-email")
+            div(class="form-group w-25")
+                label(for="settings-phone") Phone
+                input(type="text", class="form-control", id="settings-phone" name="settings-phone")
+            div(class="form-group w-25")
+                label(for="settings-dob") Date of Birth
+                input(type="date", class="form-control", id="settings-dob" name="settings-dob")
+            div(class="form-group w-25")
+                label(for="settings-interests") Choose your interests
+                select(name="settings-interests" id="settings-interests" multiple)
+                    each item in newsCategories
+                        option(value=item.category) #{item.category}
+            button(id='settings-submit', class="btn btn-primary", onclick="editUser()")
+                span Confirm Edits

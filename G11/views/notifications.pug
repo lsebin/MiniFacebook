@@ -1,0 +1,33 @@
+extends layouts/standard.pug
+
+block head
+  title Notifications
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/css/notifications.css')
+  script(src="js/ajaxgetnotifs.js")
+
+block content
+    div(class='notif-head')
+      a(class='a', href='/wall') MatchA
+      div(class='notif-divider')
+      div(class='notif-body')
+        h1 Your Notifications
+        div(id="notificiations-friendinvites-target")
+        
+            //- ul
+            //-     each notification in notifications
+            //-         div(class='notif-Class')
+            //- div(class = 'notif-box')
+            //-     h2(id='notiftype')
+            //-                 div(class = 'row') 
+            //-                     p <span style = 'font-weight: bold; font-size: 25px'> #{notification.headline.S}</span> 
+            //-                     div(class = 'col') 
+            //-                         p <span style = 'font-size: 14px'>#{notification.authors.S}</span> 
+            //-                     div(class = 'col') 
+            //-                         p #{notification.date.S}
+            //-                     div(class = 'col') 
+            //-                         p #{notification.category.S}
+            //-                     a(href = result.link.S) <span style = 'font-size: 15px'> #{notification.link.S} </span> 
+            //-                     p <span style = 'font-weight: italic; font-size: 15px'> Short description : #{notification.short_description.S} </span>
+            //-                 button.btn.btn-primary(type='submit', onclick='acceptNotif()', name='notificationAcceptButton') Accept
+            //-     button.btn.btn-primary(type='submit', onclick='declineNotif()', name='notificationDeclineButton') Decline

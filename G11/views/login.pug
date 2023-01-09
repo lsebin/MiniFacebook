@@ -1,0 +1,28 @@
+extends layouts/standard.pug
+
+block head
+  title Login to PennBook
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/css/login.css')
+  script(src="js/ajaxlogin.js")
+
+block content
+  div(class='login-head')
+    h1(class='login-h1') MatchA
+  div(class='divider')
+  div(class='parallax')
+    div(class='login-body')
+      h2(class='text-center') Login Below:
+      div(class='', align='center')
+        div(class='login-inputarea')
+          div(class='login-error')
+            div(id='login-clienterror')
+            div(id='login-servererror')
+          div.form-group(class='w-25')
+            label(for='username') Username: 
+            input(type='text', id='login-username', class='form-control', name='username', placeholder='Enter username here.')
+          div.form-group(class='w-25')
+            label(for='password') Password:
+            input(type='password', id='login-password', class='form-control', name='password', placeholder='Enter password here.')
+          button.btn.btn-primary(type='submit', onclick='checkUser()', name='loginButton', style='background-color: #49592A') Login
+    div(class='login-footer')

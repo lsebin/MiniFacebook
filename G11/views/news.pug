@@ -1,0 +1,133 @@
+extends layouts/standard.pug
+
+block head
+	title Article Recommendation
+	link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+	link(rel='stylesheet', href='/css/news.css')
+	script(src='/socket.io/socket.io.js')
+	script.
+
+		var newsresults = [];
+
+		$(document).ready(function (){
+			$.getJSON('http://localhost:8080/news' , function(elements) {
+				console.log(elements);
+				newsresults= elements.results;
+				user = elements.user;
+				console.log(elements.results);
+				for (let i = 0; i < newsresults.length; i++) {
+					let row = document.createElement("div");
+					row.setAttribute('class', 'row');
+
+					let titlecol = document.createElement("div");
+					titlecol.class = 'col';
+					let title = document.createElement("p");
+					title.setAttribute('id', 'title'+i);
+					console.log(title.id);
+					title.setAttribute('style', 'font-weight: bold; font-size: 25px');
+					title.textContent = newsresults[i].headline.S;
+					titlecol.appendChild(title);
+					row.appendChild(titlecol);
+
+					let authorcol = document.createElement("div");
+					authorcol.setAttribute('class', 'col');
+					let author = document.createElement("p");
+					author.setAttribute('style', 'font-size: 14px');
+					author.textContent = newsresults[i].authors.S;
+					authorcol.appendChild(author);
+					row.appendChild(authorcol);
+
+					let catcol = document.createElement("div");
+					catcol.setAttribute('class', 'col');
+					let cat = document.createElement("p");
+					cat.textContent = newsresults[i].category.S;
+					catcol.appendChild(cat);
+					row.appendChild(catcol);
+
+					let datecol = document.createElement("div");
+					datecol.setAttribute('class', 'col');
+					let date = document.createElement("p");
+					date.textContent = newsresults[i].date.S;
+					datecol.appendChild(date);
+					row.appendChild(datecol);
+
+					let url = document.createElement('a');
+					var createAText = document.createTextNode( newsresults[i].link.S);
+					url.setAttribute('href', newsresults[i].link.S);
+					url.appendChild(createAText);
+					row.appendChild(url);
+
+					let descol = document.createElement("div");
+					descol.class = 'col';
+					let des = document.createElement("p");
+					des.setAttribute('style', 'font-weight: italic; font-size: 15px');
+					des.textContent = newsresults[i].short_description.S;
+					descol.appendChild(des);
+					row.appendChild(descol);
+
+
+					let like = document.createElement("button");
+					like.setAttribute('class', 'likebtn');
+					like.setAttribute('id', 'like'+i);
+					like.setAttribute('myattribute', newsresults[i].headline.S);
+					//console.log($("#"+li).attr('myattribute'));
+					like.type = 'button';
+					like.innerHTML = "Like";
+					$('.likebtn').on("click", function(e) {
+						e.preventDefault();
+						let x = this.id;
+						let y = x.substring(x.length-1);
+						$.ajax({
+							type : "POST",
+							url: "/likeNews",
+							data : { 
+								headline : newsresults[y].headline.S,
+							},
+							success : function(result) {
+								// add marker when success
+								console.log('like added');
+							},
+							error : function(result) {
+								alert('error');
+							}
+						});
+					});
+					
+					var box = document.createElement("div");
+					box.setAttribute('class', 'news-box');
+					box.appendChild(row);
+					box.appendChild(like);
+					
+
+					$('#articles').append(box);
+				}
+			});
+			
+		});
+
+		var refresh = function() {
+			location.reload();
+			setTimeout(refresh, 300000); 
+		};
+
+		$(function () {
+			console.log("refresh");
+			setTimeout(refresh, 300000); 
+		});
+
+
+block content
+	div(class='news-head')
+		a(class='a', href='/wall') MatchA
+		h1(style='color:#C7D9AB') Articles That Match Your Interests.
+		div(class='divider')
+		div(class='search-body')
+			<form align="center" name="searchForm" action="/searchNews"  onsubmit="document.searchForm.keyword">
+			<label for="keyword">Search for Articles with the following words:</label><br/>
+			<input type="text" id="keyword" name="keyword" />
+				<input type="submit" value="Search">
+		</form>
+	div(class='divider')
+	div(class='news-body')
+		ul
+			#articles.newsclass

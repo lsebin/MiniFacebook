@@ -1,0 +1,16 @@
+extends layouts/standard.pug
+
+block head
+    title Search for PennBook Users
+    script(src='js/friendOps.js')
+    script(src='js/ajaxsearchusers.js')
+    link(rel='stylesheet', href='/css/search.css')
+
+block content
+    a(class='a', href='/wall') MatchA
+    div(class='search-text')
+        h1(style='background-color: #C7D9AB; text-align: center; height: 100%') Search
+    div(class="search-content")
+        div(class="search-area")
+            h2(id='search-areatext') Searching for '<span id='search-query'>#{query}</span>'   
+            div(id='search-results-target')     

@@ -1,0 +1,24 @@
+html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    title(Friendship Visualizer)
+
+    <!-- CSS Files -->
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/visualizer.css')
+
+    <!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    <!-- JIT Library File -->
+    script(language="javascript" type="text/javascript" src="../js/jit.js")
+
+    <!-- Example File -->
+    script(language="javascript" type="text/javascript" src="../js/visualizer.js")
+
+  block content
+    a(class='a', href='/wall') MatchA 
+    div(class="container", id="container")
+      div(class='center-container', id="center-container")
+          div(class="infovis", id="infovis")
+    div(class='visualizer-footer') 

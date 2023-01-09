@@ -1,0 +1,30 @@
+{
+  "name": "g11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://G11@git.nets2120.cloud/git/nets2120/G11"
+  },
+  "keywords": [
+    "social media",
+    "express"
+  ],
+  "author": "Henry Ge",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1261.0",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "io": "^1.0.5",
+    "pug": "^3.0.2",
+    "socket.io": "^4.5.4",
+    "stemmer": "^1.0.5",
+    "uuid": "^9.0.0"
+  }
+}

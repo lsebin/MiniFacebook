@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Jua);
+
+body {
+    background: #C7D9AB;
+    font-family: 'Jua';
+}
+
+.signup-form{
+    display:inline-block;
+    width:36%;
+    box-sizing: border-box;
+    position:fixed;
+    background-color:#C7D9AB;
+    height:69vh;
+    top:55px;
+    margin-left: 575px;
+    font-family: 'Jua';
+}

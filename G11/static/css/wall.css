@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Jua);
+
+form {
+    display:inline-block;
+    width:50%;
+    text-align: center;
+}
+
+.a{
+    all: unset;
+    font-size: 40px;
+    color:#49592A;
+}
+
+.a:hover{
+    color: white;
+}
+
+.parallax{
+    /* The image used */
+    background-image: url("/images/matcha-background.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wall-header{
+    display:inline-block;
+    background:#C7D9AB;
+    color:skyblue;
+    font-size:xx-large;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    position:fixed;
+    top:0;
+    margin-bottom: 0;
+    font-family: 'Jua';
+}
+
+.wall-buttons{
+    display:inline-block;
+    background:#C7D9AB;
+    width:100%;
+    margin-top:0;
+    font-family: 'Jua';
+}
+
+.wall-divider{
+    width:100%;
+    color: white;
+    background: white;
+    height: 1px;
+}
+
+.wall-content{
+    margin-top: 107px;
+    background:#C7D9AB;
+    text-align: center;
+    width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+    height: 100vh;
+    font-family: 'Jua';
+    padding-top: 20px;
+}
+
+.btn-toolbar{
+    text-align: center;
+}
+
+.form-control{
+    width: 25%;
+    margin:auto;
+    background-color: #C7D9AB;
+}

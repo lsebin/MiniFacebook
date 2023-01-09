@@ -1,0 +1,45 @@
+extends layouts/standard.pug
+
+block head
+  title Sign up to MatchA
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/css/signup.css')
+  script(src='js/ajaxsignup.js')
+
+block content
+  h1(class='text-center') Sign Up
+  div(class="signup-form", align='center')
+    div(class="signup-error")
+        div(id="signup-clienterror")
+        div(id="signup-servererror")
+    div(class="form-group w-25")
+        label(for="signup-username") Username
+        input.form-control(type="text", class="", id="signup-username" name="signup-username")
+    div(class="form-group w-25")
+        label(for="signup-password") Password
+        input.form-control(type="password", class="", id="signup-password" name="signup-password")
+    div(class="form-group w-25")
+        label(for="signup-firstname") First Name
+        input.form-control(type="text", class="", id="signup-firstname" name="signup-firstname")
+    div(class="form-group w-25")
+        label(for="signup-lastname") Last Name
+        input.form-control(type="text", class="", id="signup-lastname" name="signup-lastname")
+    div(class="form-group w-25")
+        label(for="signup-affiliation") Affiliation
+        input.form-control(type="text", class="", id="signup-affiliation" name="signup-affiliation")
+    div(class="form-group w-25")
+        label(for="signup-email") Email
+        input.form-control(type="text", class="", id="signup-email" name="signup-email")
+    div(class="form-group w-25")
+        label(for="signup-dob") Date of Birth
+        input.form-control(type="date", class="", id="signup-dob" name="signup-dob")
+    div()
+        label(class='form-label select-label', for="signup-interests") Choose your interests
+    div()
+        select(class='select' name="signup-interests" id="signup-interests" multiple)
+            each item in newsCategories
+                option(value=item.category) #{item.category}
+
+    button(id='signup-submit', class="btn btn-primary", onclick="createUser()", style='background-color: #49592A')
+        span Create your account
+    

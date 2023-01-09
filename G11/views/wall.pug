@@ -1,0 +1,50 @@
+extends layouts/standard.pug
+
+block head
+    title MatchA
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/wall.css')
+    script(src='js/ajaxwall.js')
+
+block content
+    div(class="parallax")
+        div(class="wall-header")
+            a(class='a', href='/wall') MatchA
+            div(class="wall-buttons")
+                div(class="btn-toolbar", style="justify-content: center; display: flex;")
+                    a(href="/visualizer")
+                        button(type='button', id='wall-visualizer', class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span See your web of friends!
+                    a(href="/chat")
+                        button(type='button', id='wall-chats', class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span See your Matcha Chats!
+                    a(href="/notifications")
+                        button(type='button', id="wall-notif", class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span Notifications
+                    a(href="/newsfeed")
+                        button(type='button', id='wall-news', class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span News Feed!
+                    a(href=`/mywall/${username}`)
+                        button(type='button', id='wall-yourwall', class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span Your Wall
+                    a(href=`/logout`)
+                        button(type='button', id='wall-logout', class="btn btn-primary btn-rounded m-1", style="background-color: #49592A")
+                            span Logout
+        div(class="wall-content")
+            h1 Home
+            div(class="wall-searchuser")
+                div(class="wall-searchuser-inputarea")
+                    label(for='wall-searchuser-input')
+                    input(type='text', id='wall-searchuser-input')
+                div(class='form-control')
+                    button(type='button', id='wall-searchbutton', class="btn btn-primary btn-rounded m-1", onclick="searchUser()", style='background-color: #49592A') Search User
+            div(class='wall-feed')
+                div(id='wall-post-target')
+            //- div(class="wall-inputarea")
+            //-     textarea(class="wall-mainpost")
+            //- div(class='form-control')
+            //-     button(type='button', id='wall-postbutton', class="btn btn-primary btn-rounded m-1",onclick="", style='background-color: #49592A') Post to your wall
+        div(class="wall-userprofile")
+            a(href="/friends", style='color:white; text-align:center') Your Friends 
+            a &nbsp &nbsp &nbsp
+            a(href="/settings", style='color:white; text-align: center') Account Settings

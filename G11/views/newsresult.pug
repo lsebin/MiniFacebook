@@ -1,0 +1,29 @@
+extends layouts/standard.pug
+
+block head
+	title Search Result
+	link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+	link(rel='stylesheet', href='/css/news.css')
+
+block content
+	div(class='news-head')
+		a(class='a', href='/wall') MatchA
+		h1(style='color:white') Articles That Match Your Search Result.
+		div(class='divider')
+		div(class='search-body')
+			a.basicButton(sthref="/newsfeed") Back to News Feed
+	div(class='news-body')
+		ul
+			each result in results
+				div(class='news-Class')
+					div(class = 'news-box')
+						div(class = 'row') 
+							<p id = 'title'> <span style = 'font-weight: bold; font-size: 25px'> #{result.headline.S}</span> </p>
+							div(class = 'col') 
+								p <span style = 'font-size: 14px'>#{result.authors.S}</span> 
+							div(class = 'col') 
+								p #{result.date.S}
+							div(class = 'col') 
+								p #{result.category.S}
+							a(href = result.link.S) <span style = 'font-size: 15px'> #{result.link.S} </span> 
+							p <span style = 'font-weight: italic; font-size: 15px'> Short description : #{result.short_description.S} </span>

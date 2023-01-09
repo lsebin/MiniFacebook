@@ -1,0 +1,33 @@
+extends layouts/standard.pug
+
+block head
+    title MatchA
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css')
+
+block content
+    div(class="parallax")
+        div(class="wall-header")
+            h1(color=red) MatchA
+            div(class="wall-buttons")
+                form(method="get", action="/visualizer")
+                    button(id='wall-visualizer', class="btn btn-primary btn-rounded margin-left")
+                        span See your web of friends!
+                form(method="get" action="/chat")
+                    button(id='wall-chats', class="btn btn-primary btn-rounded margin-right")
+                        span See your chats!
+                form(method="get" action="/notifications")
+                    button(id="wall-notif", class="btn btn-primary btn-rounded margin-right")
+                        span Notifications
+            div(class="wall-divider")
+        div(class="wall-content")
+            div(class="wall-searchuser")
+                div(class="wall-searchuser-inputarea")
+                    label(for='wall-searchuser-input')
+                    input(type='text', id='wall-searchuser-input')
+                button(onclick="searchUser()") Search User
+            div(class="wall-inputarea")
+                textarea(class="wall-mainpost")
+            button(onclick="") Post
+        div(class="wall-userprofile")
+            a(href="/friends") Your Friends
+            a(href="/settings") Account Settings

@@ -1,0 +1,23 @@
+extends layouts/standard.pug
+
+block head
+  title Welcome to MatchA
+  link(rel='stylesheet', href='/css/splash.css')
+
+block content
+  div(class='splash-image')
+    img(src="/images/teacup.png")
+  div(class="container")
+    div(class="title") Welcome to MatchA!
+    div(class='divider')
+    div(class="row", align='center')
+      div(class='col')
+        h3 Don't Have An Account? Create an Account Here!
+        form(method="get", action="/signup")
+          button(id='splash-signup', class="btn btn-primary btn-rounded margin-left", style="background-color: #49592A")
+            span Create your account
+      div(class='col')
+        h3 Already have an account? Login Here!
+        form(method="get", action="/login")
+          button(id='splash-login', class="btn btn-primary btn-rounded margin-right", style="background-color: #49592A")
+            span Login
